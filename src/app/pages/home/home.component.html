@@ -1,0 +1,25 @@
+<main class="principal__container">
+    <div class="principal__detalle">
+        <detalle
+            [pokemon]="pokemonSeleccionado"
+            (clicked)="cambiarEstadoDetalle()"
+            [abierto]="detalle"
+            [ngClass]="{'abierto': detalle}"
+        >
+        </detalle>
+
+    </div>
+    <div class="principal__fotocontainer">
+        <foto-pokemon [pokemon]="pokemonSeleccionado">
+            
+        </foto-pokemon>
+    </div>
+    <!--#tarjetas: es un identificador de ng que envuelve (div class="principal__tarjetascontainer)" -->
+    <div class="principal__tarjetascontainer" #tarjetas (scroll)="onScroll($event)">
+        <tarjeta-pokemon *ngFor="let pokemon of listaPokemon"
+        [data]="pokemon"
+        [seleccionado]="pokemon.name === pokemonSeleccionado?.name"
+        (clickeado)="tarjetaClickeada($event)"
+        />
+    </div>
+</main>

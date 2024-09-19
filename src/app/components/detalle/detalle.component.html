@@ -1,0 +1,23 @@
+<div class="grid">
+    <div class="detalle">
+        <!--nombre Pokemon-->
+        <div class="detalle__heading">
+            <h1 class="detalle__heading-title">{{pokemon?.name}}</h1>
+        </div>
+          
+        <!--Informacion-->
+        <div class="detalle__informacion">
+            <p><span class="detalle__informacion-etiqueta">Tipo: </span> 
+                <span class="detalle__informacion-tipo" 
+                    *ngFor="let tipo of pokemon?.types"> {{tipo.type.name}}
+                </span>
+            </p>
+            <p><span class="detalle__informacion-altura">Altura: </span>{{pokemon?.height}}'</p>
+            <p><span class="detalle__informacion-peso">Peso: </span>{{pokemon?.weight}} lbs.</p>
+        </div>
+    </div>
+
+    <button class="boton" (click)="clicked.emit()">
+        <img class="boton__flecha" src="./../../../assets/img/flecha.png" alt=""  [ngClass]="{girar: abierto}">
+    </button>
+</div>

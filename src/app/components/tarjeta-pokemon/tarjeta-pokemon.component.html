@@ -1,0 +1,12 @@
+<div class="tarjeta" [ngClass]="{seleccionado: seleccionado}">
+    <img class="tarjeta__flecha" src="./../../../assets/img/flecha.png" alt="flecha"
+        *ngIf="seleccionado">
+
+    <div class="tarjeta__contenido" (click)="clickeado.emit(id)">
+        <div class="tarjeta__contenido-circulo"></div>
+        <!--buscar en console/sprites/front_default y pegamos url comun de todos en src-->
+        <img class="tarjeta__contenido-imagen" src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id}}.png' alt="">
+        <span>No. {{id}}</span>
+        <span>{{ toTitleCase(data.name) }}</span>
+    </div>
+</div>
